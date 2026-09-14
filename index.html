@@ -191,6 +191,7 @@
   .cell-text strong { color: var(--text); font-weight: 500; }
 
   /* ---------- Animated tech icons ---------- */
+  .stack-groups { display: flex; flex-direction: column; gap: 14px; }
   .icon-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 4px; }
   @media (max-width: 900px) { .icon-grid { grid-template-columns: repeat(4, 1fr); } }
   @media (max-width: 560px) { .icon-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -347,32 +348,59 @@
       <p class="section-sub">Backend-first, with enough frontend to ship a product solo when a project needs it.</p>
     </div>
 
-    <div class="cell">
-      <div class="icon-grid">
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot"><span>Spring Boot</span></div>
-        <div class="tech-icon"><img class="icon-spin" src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="REST APIs"><span>REST APIs</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/rabbitmq/FF6600" alt="RabbitMQ"><span>RabbitMQ</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/apacheactivemq/D82A20" alt="ActiveMQ"><span>ActiveMQ</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS"><span>AWS</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL"><span>PostgreSQL</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"><span>MySQL</span></div>
-        <div class="tech-icon"><img class="icon-spin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue"><span>Vue</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span>React</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="Angular"><span>Angular</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/awslambda/FF9900" alt="AWS Lambda"><span>Lambda</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"><span>Docker</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
-        <div class="tech-icon"><img class="icon-spin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB"><span>MongoDB</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" alt="Oracle"><span>Oracle</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/git/F05032" alt="Git"><span>Git</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/jenkins/D24939" alt="Jenkins"><span>Jenkins</span></div>
-        <div class="tech-icon"><img class="icon-spin" src="https://cdn.simpleicons.org/githubactions/2088FF" alt="GitHub Actions"><span>GH Actions</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/nginx/009639" alt="Nginx"><span>Nginx</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira"><span>Jira</span></div>
-        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/apachemaven/C71A36" alt="Maven"><span>Maven</span></div>
-        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/junit5/25A162" alt="JUnit"><span>JUnit</span></div>
+    <div class="stack-groups">
+      <div class="cell">
+        <div class="cell-label">BACKEND</div>
+        <div class="icon-grid">
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot"><span>Spring Boot</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+          <div class="tech-icon"><img class="icon-spin" src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="REST APIs"><span>REST APIs</span></div>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell-label">DATA &amp; MESSAGING</div>
+        <div class="icon-grid">
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL"><span>PostgreSQL</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"><span>MySQL</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB"><span>MongoDB</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" alt="Oracle"><span>Oracle</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/rabbitmq/FF6600" alt="RabbitMQ"><span>RabbitMQ</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/apacheactivemq/D82A20" alt="ActiveMQ"><span>ActiveMQ</span></div>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell-label">CLOUD &amp; DEVOPS</div>
+        <div class="icon-grid">
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS"><span>AWS</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/awslambda/FF9900" alt="AWS Lambda"><span>Lambda</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"><span>Docker</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/jenkins/D24939" alt="Jenkins"><span>Jenkins</span></div>
+          <div class="tech-icon"><img class="icon-spin" src="https://cdn.simpleicons.org/githubactions/2088FF" alt="GitHub Actions"><span>GH Actions</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/nginx/009639" alt="Nginx"><span>Nginx</span></div>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell-label">FRONTEND</div>
+        <div class="icon-grid">
+          <div class="tech-icon"><img class="icon-spin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue"><span>Vue</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span>React</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="Angular"><span>Angular</span></div>
+          <div class="tech-icon"><img class="icon-spin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
+        </div>
+      </div>
+
+      <div class="cell">
+        <div class="cell-label">TOOLS</div>
+        <div class="icon-grid">
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/git/F05032" alt="Git"><span>Git</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira"><span>Jira</span></div>
+          <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/apachemaven/C71A36" alt="Maven"><span>Maven</span></div>
+          <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/junit5/25A162" alt="JUnit"><span>JUnit</span></div>
+        </div>
       </div>
     </div>
   </section>
