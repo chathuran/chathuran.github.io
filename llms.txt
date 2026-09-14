@@ -10,6 +10,7 @@ Chathuran Dannoruwa is a backend-focused software engineer specializing in Java,
 - 8+ years of professional experience across 7 companies in Australia and Sri Lanka, spanning property tech, decision-automation/analytics, marketing-tech, and enterprise travel platforms.
 - Career highlights: improved backend performance by 50% through query and batch-process tuning (Complexica); delivered a demand-forecasting microservice reducing inventory waste by 25% (PFD Foods); built high-availability backend systems supporting 25,000+ users (Yas Island, Abu Dhabi, via CodeGen International); developed secure, scalable real-time data integration microservices (Audience Republic).
 - Shipped an independent consumer app, PackTheApps (https://travel.packtheapps.com/), a destination-to-app travel recommender.
+- Published an IntelliJ IDE plugin, Spring Boot Flow Visualizer (https://plugins.jetbrains.com/plugin/30876-spring-boot-flow-visualizer/versions/stable), which auto-detects Spring Boot execution flows and generates diagrams to help developers understand, debug, and document service interactions.
 
 ## Links
 
