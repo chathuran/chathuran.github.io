@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chathuran Dannoruwa — Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05070A;
+    --bg2: #090D12;
+    --glass: rgba(255,255,255,0.045);
+    --glass-hi: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.09);
+    --border-hi: rgba(255,255,255,0.18);
+    --text: #E7ECEF;
+    --text-dim: #7C8B96;
+    --cyan: #52E8D9;
+    --violet: #9C8CFB;
+    --cyan-soft: rgba(82,232,217,0.14);
+    --violet-soft: rgba(156,140,251,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15.5px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) { *{animation:none!important;transition:none!important;} }
+
+  h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; }
+  a { color: inherit; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Backdrop ---------- */
+  .backdrop { position: fixed; inset: 0; z-index: -2; background: var(--bg); }
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(90px); z-index: -1; opacity: 0.5;
+    animation: drift 22s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 480px; height: 480px; background: var(--cyan); top: -160px; right: -120px; opacity: 0.16; }
+  .orb-2 { width: 420px; height: 420px; background: var(--violet); top: 420px; left: -180px; opacity: 0.14; animation-delay: -8s; }
+  .orb-3 { width: 380px; height: 380px; background: var(--cyan); bottom: -120px; right: 10%; opacity: 0.10; animation-delay: -14s; }
+  @keyframes drift { to { transform: translate(40px, 30px) scale(1.08); } }
+
+  .grid-overlay {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at 50% 0%, black, transparent 75%);
+  }
+
+  /* ---------- Nav ---------- */
+  nav { position: sticky; top: 16px; z-index: 30; }
+  .nav-pill {
+    max-width: 1080px; margin: 0 auto; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(12,16,20,0.6); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--border); border-radius: 16px;
+  }
+  .nav-mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 14.5px; font-family: 'Space Grotesk', sans-serif; }
+  .nav-mark .chip { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(135deg, var(--cyan), var(--violet)); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #05070A; font-weight: 700; overflow: hidden; }
+  .nav-mark .chip img { width: 100%; height: 100%; object-fit: cover; }
+  .nav-links { display: flex; gap: 26px; font-size: 13px; }
+  .nav-links a { text-decoration: none; color: var(--text-dim); transition: color 0.2s ease; }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-cta {
+    font-size: 12.5px; padding: 8px 16px; border-radius: 20px; text-decoration: none;
+    background: linear-gradient(135deg, var(--cyan-soft), var(--violet-soft)); border: 1px solid var(--border-hi); color: var(--text);
+    transition: transform 0.2s ease;
+  }
+  .nav-cta:hover { transform: translateY(-1px); }
+  @media (max-width: 680px) { .nav-links { display: none; } }
+
+  /* ---------- Hero ---------- */
+  header { padding: 96px 0 40px; text-align: center; position: relative; }
+
+  .orbit-stage { position: relative; width: 180px; height: 180px; margin: 0 auto 40px; }
+  .orbit-ring { position: absolute; inset: 0; border: 1px solid var(--border); border-radius: 50%; }
+  .orbit-ring.r2 { inset: -28px; border-color: rgba(255,255,255,0.05); animation: spin 24s linear infinite; }
+  .orbit-ring.r3 { inset: -56px; border-color: rgba(255,255,255,0.03); animation: spin 40s linear infinite reverse; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .core {
+    position: absolute; inset: 38px; border-radius: 50%;
+    background: linear-gradient(155deg, rgba(82,232,217,0.16), rgba(156,140,251,0.10));
+    border: 1px solid var(--border-hi);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30px;
+    box-shadow: 0 0 60px -10px var(--cyan-soft), inset 0 0 30px rgba(255,255,255,0.04);
+    animation: pulse-core 4s ease-in-out infinite;
+    overflow: hidden;
+  }
+  .core img { width: 100%; height: 100%; object-fit: cover; }
+  @keyframes pulse-core { 0%,100% { box-shadow: 0 0 60px -10px var(--cyan-soft), inset 0 0 30px rgba(255,255,255,0.04); } 50% { box-shadow: 0 0 80px -6px var(--violet-soft), inset 0 0 34px rgba(255,255,255,0.06); } }
+
+  .orbit-icon {
+    position: absolute; width: 34px; height: 34px; border-radius: 9px;
+    background: rgba(12,16,20,0.85); border: 1px solid var(--border-hi);
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+    animation: orbit-float 5s ease-in-out infinite;
+  }
+  .orbit-icon svg { width: 16px; height: 16px; }
+  .oi-1 { top: -10px; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+  .oi-2 { bottom: 10px; left: -14px; animation-delay: -1.6s; }
+  .oi-3 { bottom: 10px; right: -14px; animation-delay: -3.2s; }
+  @keyframes orbit-float { 0%,100% { transform: translateY(0) translateX(var(--tx,0)); } 50% { transform: translateY(-8px) translateX(var(--tx,0)); } }
+  .oi-1 { --tx: -50%; }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--cyan);
+    padding: 6px 14px; border: 1px solid var(--border-hi); border-radius: 20px; margin-bottom: 26px;
+    background: var(--glass);
+  }
+  .kicker .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 3px var(--cyan-soft); animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  h1 {
+    font-weight: 700; font-size: clamp(42px, 8vw, 78px); line-height: 1.02; letter-spacing: -0.02em;
+  }
+  .grad-text {
+    background: linear-gradient(100deg, var(--cyan) 0%, var(--violet) 55%, var(--cyan) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: sheen 6s linear infinite;
+  }
+  @keyframes sheen { to { background-position: 200% center; } }
+
+  .role { margin-top: 14px; font-size: clamp(15px, 2.2vw, 18px); color: var(--text-dim); }
+  .role strong { color: var(--text); font-weight: 500; }
+
+  .intro { margin: 24px auto 0; max-width: 54ch; color: var(--text-dim); font-size: 14.5px; }
+  .intro strong { color: var(--text); }
+
+  .hero-actions { margin-top: 34px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { font-size: 13.5px; text-decoration: none; padding: 13px 24px; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s ease; font-weight: 500; }
+  .btn-solid { background: linear-gradient(135deg, var(--cyan), var(--violet)); color: #05070A; }
+  .btn-solid:hover { filter: brightness(1.1); transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid var(--border-hi); color: var(--text); background: var(--glass); }
+  .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 60px 0; }
+  .section-head { text-align: center; margin-bottom: 40px; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.08em; color: var(--cyan); text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-size: clamp(24px, 3.6vw, 32px); font-weight: 600; }
+  .section-sub { color: var(--text-dim); font-size: 14px; max-width: 52ch; margin: 12px auto 0; }
+
+  /* ---------- Bento grid ---------- */
+  .bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .bento { grid-template-columns: 1fr; } }
+
+  .cell {
+    background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .cell::before {
+    content: ""; position: absolute; inset: 0; border-radius: 16px; padding: 1px;
+    background: linear-gradient(135deg, transparent, transparent); opacity: 0; transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .cell:hover { border-color: var(--border-hi); transform: translateY(-3px); background: var(--glass-hi); }
+
+  .cell.span-2 { grid-column: span 2; }
+  .cell.span-4 { grid-column: span 4; }
+  @media (max-width: 900px) { .cell.span-4 { grid-column: span 2; } }
+  @media (max-width: 560px) { .cell.span-2, .cell.span-4 { grid-column: span 1; } }
+
+  .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700;
+    background: linear-gradient(135deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat-label { font-size: 12.5px; color: var(--text-dim); margin-top: 6px; }
+
+  .cell-label { font-size: 12px; color: var(--cyan); margin-bottom: 10px; letter-spacing: 0.04em; }
+  .cell-text { font-size: 14px; color: var(--text-dim); }
+  .cell-text strong { color: var(--text); font-weight: 500; }
+
+  /* ---------- Animated tech icons ---------- */
+  .icon-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 4px; }
+  @media (max-width: 900px) { .icon-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 560px) { .icon-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .tech-icon {
+    aspect-ratio: 1; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    cursor: default;
+  }
+  .tech-icon:hover { border-color: var(--cyan); background: var(--cyan-soft); transform: translateY(-4px); }
+  .tech-icon img { width: 24px; height: 24px; object-fit: contain; transition: transform 0.4s ease; }
+  .tech-icon:hover img { transform: rotate(8deg) scale(1.14); }
+  .tech-icon span { font-size: 10px; color: var(--text-dim); text-align: center; }
+
+  .icon-pulse { animation: icon-pulse 3s ease-in-out infinite; }
+  @keyframes icon-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+  .icon-spin { animation: spin 6s linear infinite; transform-origin: center; }
+  .icon-float { animation: icon-float 3.4s ease-in-out infinite; }
+  @keyframes icon-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+  /* ---------- Work cards ---------- */
+  .work-card { display: block; text-decoration: none; color: inherit; }
+  .work-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .work-icon-box {
+    width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--cyan-soft), var(--violet-soft)); border: 1px solid var(--border-hi);
+  }
+  .work-icon-box svg { width: 19px; height: 19px; stroke: var(--cyan); }
+  .work-tag { font-size: 11px; color: var(--violet); border: 1px solid var(--border-hi); border-radius: 20px; padding: 3px 10px; }
+  .work-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; margin-bottom: 8px; }
+  .work-desc { font-size: 13.5px; color: var(--text-dim); }
+
+  /* ---------- Timeline ---------- */
+  .timeline-item { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--border); }
+  .timeline-item:first-child { border-top: none; padding-top: 0; }
+  @media (max-width: 620px) { .timeline-item { grid-template-columns: 1fr; gap: 6px; } }
+  .timeline-period { font-size: 11.5px; color: var(--text-dim); padding-top: 3px; }
+  .timeline-role { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16.5px; }
+  .timeline-company { color: var(--cyan); font-size: 12.5px; margin: 3px 0 8px; }
+  .timeline-desc { font-size: 13.5px; color: var(--text-dim); max-width: 58ch; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .contact-pill {
+    font-size: 13px; text-decoration: none; padding: 11px 18px; border: 1px solid var(--border-hi);
+    border-radius: 30px; background: var(--glass); transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .contact-pill:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-soft); }
+
+  footer { padding: 40px 0 70px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border); margin-top: 20px; }
+  .footer-fine { font-size: 12px; color: var(--text-dim); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<div class="backdrop"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-overlay"></div>
+
+<nav>
+  <div class="nav-pill">
+    <a class="nav-mark" href="#home"><span class="chip"><img src="assets/profile.jpg" alt="Chathuran Dannoruwa"></span>CHATHURAN DANNORUWA</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+    </div>
+    <a class="nav-cta" href="#contact">Let's talk</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header id="home">
+    <div class="orbit-stage">
+      <div class="orbit-ring r3"></div>
+      <div class="orbit-ring r2"></div>
+      <div class="orbit-ring"></div>
+      <div class="core"><img src="assets/profile.jpg" alt="Chathuran Dannoruwa"></div>
+      <div class="orbit-icon oi-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="stroke: var(--cyan);"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M7 3v2M17 3v2M7 19v2M17 19v2M3 7h2M3 17h2M19 7h2M19 17h2"/></svg>
+      </div>
+      <div class="orbit-icon oi-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="stroke: var(--violet);"><path d="M4 17a5 5 0 0 1 5-5h.5a4 4 0 1 1 7.5 2H18a3 3 0 1 1 0 6H7a3 3 0 0 1-3-3Z"/></svg>
+      </div>
+      <div class="orbit-icon oi-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="stroke: var(--cyan);"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+      </div>
+    </div>
+
+    <div class="kicker"><span class="pulse-dot"></span>Available for new projects</div>
+    <h1>Building at the<br><span class="grad-text">edge of backend systems</span></h1>
+    <p class="role"><strong>Chathuran Dannoruwa</strong> — Backend Engineer &amp; Studio Founder</p>
+    <p class="intro">
+      <strong>8+ years</strong> engineering event-driven systems in Java and Spring Boot, based in
+      Adelaide. Founder of <strong>DnCTechies</strong>, a small studio shipping independent consumer apps.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#work">See my work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <section id="stats">
+    <div class="bento">
+      <div class="cell">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div class="cell">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Companies &amp; teams</div>
+      </div>
+      <div class="cell">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Apps shipped solo</div>
+      </div>
+      <div class="cell">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Studio co-founded</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <div class="eyebrow">Featured work</div>
+      <div class="section-title">Products I've shipped</div>
+      <p class="section-sub">Client backend systems and the consumer apps built under DnCTechies.</p>
+    </div>
+
+    <div class="bento">
+      <a class="cell span-2 work-card" href="#">
+        <div class="work-top">
+          <div class="work-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+          <span class="work-tag">DnCTechies</span>
+        </div>
+        <div class="work-name">BillHound</div>
+        <p class="work-desc">Utility bill tracking and energy plan comparison for Australian households — spotting when people are overpaying and helping them switch with confidence.</p>
+      </a>
+
+      <a class="cell span-2 work-card" href="#">
+        <div class="work-top">
+          <div class="work-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 7v10l8 5 8-5V7Z"/><path d="M12 12 4 7M12 12v10M12 12l8-5"/></svg></div>
+          <span class="work-tag">DnCTechies</span>
+        </div>
+        <div class="work-name">PackTheApps</div>
+        <p class="work-desc">A destination-to-app travel recommender — tell it where you're headed, get the local apps worth installing before you land.</p>
+      </a>
+
+      <a class="cell span-2 work-card" href="#">
+        <div class="work-top">
+          <div class="work-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+          <span class="work-tag">In progress</span>
+        </div>
+        <div class="work-name">Job Aggregator</div>
+        <p class="work-desc">A legally clean job search aggregator, built to respect source terms while giving seekers one place to look.</p>
+      </a>
+
+      <a class="cell span-2 work-card" href="#">
+        <div class="work-top">
+          <div class="work-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
+          <span class="work-tag">Studio</span>
+        </div>
+        <div class="work-name">DnCTechies</div>
+        <p class="work-desc">The studio itself — shared infrastructure, publishing pipeline, and design system behind every app we ship.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-head">
+      <div class="eyebrow">Skills &amp; stack</div>
+      <div class="section-title">Tools I reach for</div>
+      <p class="section-sub">Backend-first, with enough frontend to ship a product solo when a project needs it.</p>
+    </div>
+
+    <div class="cell">
+      <div class="icon-grid">
+        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
+        <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot"><span>Spring Boot</span></div>
+        <div class="tech-icon"><img class="icon-spin" src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="REST APIs"><span>REST APIs</span></div>
+        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/rabbitmq/FF6600" alt="RabbitMQ"><span>RabbitMQ</span></div>
+        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/apacheactivemq/D82A20" alt="ActiveMQ"><span>ActiveMQ</span></div>
+        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS"><span>AWS</span></div>
+        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL"><span>PostgreSQL</span></div>
+        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"><span>MySQL</span></div>
+        <div class="tech-icon"><img class="icon-spin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue"><span>Vue</span></div>
+        <div class="tech-icon"><img class="icon-float" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"><span>React</span></div>
+        <div class="tech-icon"><img class="icon-pulse" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="Angular"><span>Angular</span></div>
+        <div class="tech-icon"><img class="icon-float" src="https://cdn.simpleicons.org/awslambda/FF9900" alt="AWS Lambda"><span>Lambda</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="eyebrow">Where I've worked</div>
+      <div class="section-title">Experience</div>
+      <p class="section-sub">Backend-focused roles across property, decision-automation, and marketing-tech companies.</p>
+    </div>
+
+    <div class="cell span-4">
+      <div class="timeline-item">
+        <div class="timeline-period">Recent</div>
+        <div>
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-company">UNIFI Property</div>
+          <div class="timeline-desc">Backend services and integrations supporting property management workflows.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Earlier</div>
+        <div>
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-company">Complexica</div>
+          <div class="timeline-desc">Java/Spring Boot services within a decision-automation platform.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Earlier</div>
+        <div>
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-company">Audience Republic</div>
+          <div class="timeline-desc">Backend and event-driven systems for a marketing platform.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Earlier</div>
+        <div>
+          <div class="timeline-role">Software Engineer</div>
+          <div class="timeline-company">Jade Walker &amp; Co · CodeGen International · Virtusa · findmyfare</div>
+          <div class="timeline-desc">Earlier roles building backend systems across product and consulting teams.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="bento">
+      <div class="cell span-2">
+        <div class="cell-label">ABOUT</div>
+        <p class="cell-text">
+          I'm <strong>Chathuran</strong>, a backend engineer with 8+ years across property tech, logistics, and
+          marketing platforms — and co-founder of <strong>DnCTechies</strong>. I care about clear service
+          boundaries, systems that stay predictable under load, and shipping things that actually reach users.
+        </p>
+      </div>
+      <div class="cell">
+        <div class="cell-label">EDUCATION</div>
+        <p class="cell-text"><strong>BSc, Software Engineering</strong><br>SLIIT, Sri Lanka</p>
+      </div>
+      <div class="cell">
+        <div class="cell-label">BASED IN</div>
+        <p class="cell-text"><strong>Adelaide</strong><br>South Australia</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="cell span-4" style="text-align:center; padding: 48px 24px;">
+      <div class="eyebrow">Get in touch</div>
+      <div class="section-title">Let's build something reliable together.</div>
+      <p class="section-sub" style="margin:12px auto 0;">Open to backend/full-stack roles and select freelance or studio collaborations.</p>
+      <div class="contact-grid" style="justify-content:center;">
+        <a class="contact-pill" href="mailto:dce.dannoruwa@gmail.com">dce.dannoruwa@gmail.com</a>
+        <a class="contact-pill" href="https://github.com/chathuran" target="_blank" rel="noopener">github.com/chathuran</a>
+        <a class="contact-pill" href="https://www.linkedin.com/in/chathurane/" target="_blank" rel="noopener">linkedin.com/in/chathurane</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="nav-mark"><span class="chip"><img src="assets/profile.jpg" alt="Chathuran Dannoruwa"></span>CHATHURAN DANNORUWA</div>
+    <div class="footer-fine">© 2026 · Adelaide, Australia</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
