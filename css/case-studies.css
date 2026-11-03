@@ -1,0 +1,524 @@
+/* Engineering case studies: scoped additions to the portfolio's visual system. */
+.case-section {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.case-heading-subtitle {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.case-study {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid #33414d;
+  border-radius: var(--radius);
+  scroll-margin-top: 110px;
+}
+
+.case-featured {
+  grid-column: 1 / -1;
+}
+
+.case-overview {
+  padding: 30px;
+}
+
+.case-featured .case-overview {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  padding: 38px;
+}
+
+.case-topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.case-topline .mini-label {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.case-category {
+  padding: 3px 8px;
+  color: var(--mint);
+  border: 1px solid #345b4e;
+  border-radius: 4px;
+  font-size: 9px;
+}
+
+.case-category-violet {
+  color: var(--violet);
+  border-color: #51476b;
+}
+
+.case-category-blue {
+  color: var(--blue);
+  border-color: #3b526c;
+}
+
+.case-introduction h3 {
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -.9px;
+}
+
+.case-featured .case-introduction h3 {
+  font-size: 32px;
+  letter-spacing: -1.2px;
+}
+
+.case-introduction > p {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.case-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0 0;
+}
+
+.case-facts dt {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+.case-facts dd {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.case-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 27px 22px;
+  text-align: center;
+  background: #11221f;
+  border: 1px solid #2e4a41;
+  border-radius: 9px;
+}
+
+.case-result > .mini-label {
+  color: #b7cdc5;
+  font-size: 8px;
+}
+
+.case-metric {
+  margin-top: 12px;
+  color: var(--mint);
+  font-family: var(--display);
+  font-size: 100px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -6px;
+}
+
+.case-metric > span {
+  margin-left: 3px;
+  font-size: 50px;
+  letter-spacing: -3px;
+}
+
+.case-metric-label {
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+.case-process {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 25px;
+  font-family: var(--mono);
+  font-size: 8px;
+  color: #b7cdc5;
+}
+
+.case-process > span:not([aria-hidden]) {
+  padding: 5px 8px;
+  border: 1px solid #34564a;
+  border-radius: 4px;
+}
+
+.case-result-note {
+  margin-top: 13px;
+  color: #b7cdc5;
+  font-size: 10px;
+}
+
+.case-flow-wrap {
+  margin-top: 27px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.case-flow-wrap .mini-label {
+  font-size: 8px;
+  letter-spacing: .8px;
+}
+
+.case-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 17px;
+  padding: 0;
+  margin: 14px 0 0;
+  list-style: none;
+}
+
+.case-flow li {
+  position: relative;
+  padding: 6px 8px;
+  background: #252134;
+  border: 1px solid #51476b;
+  border-radius: 4px;
+  color: #d2c6f8;
+  font-family: var(--mono);
+  font-size: 8px;
+}
+
+.case-flow li:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -14px;
+  top: 5px;
+  color: var(--muted);
+}
+
+.case-flow-blue li {
+  color: #b6d2f4;
+  background: #192535;
+  border-color: #3b526c;
+}
+
+.case-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 19px 30px;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, .015);
+  font-size: 12px;
+  transition: background .2s, color .2s;
+}
+
+.case-link:hover {
+  background: rgba(124, 230, 197, .05);
+  color: var(--mint);
+}
+
+.case-link:focus-visible {
+  outline-offset: -5px;
+}
+
+.case-link > .icon {
+  width: 17px;
+  height: 17px;
+  color: var(--mint);
+}
+
+.case-read-time {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .6px;
+}
+
+.project-case-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #345b4e;
+  border-radius: 5px;
+  background: #152a24;
+  color: var(--mint);
+  font-size: 12px;
+  transition: background .2s;
+}
+
+.project-case-link:hover {
+  background: #1c3930;
+}
+
+.project-case-link + .project-link {
+  margin-top: 0;
+}
+
+.case-body {
+  display: grid;
+  gap: 28px;
+  padding: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.case-featured .case-body {
+  grid-template-columns: 1.65fr 1fr;
+  gap: 45px;
+  padding: 38px;
+}
+
+.case-narrative {
+  display: grid;
+  gap: 27px;
+}
+
+.case-chapter {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.case-step {
+  padding-top: 3px;
+  color: var(--mint);
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.case-chapter h4, .case-takeaway h4 {
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: -.3px;
+}
+
+.case-chapter p, .case-takeaway > p:not(.mini-label) {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.case-chapter strong {
+  color: var(--text);
+}
+
+.case-takeaway {
+  align-self: start;
+  padding: 24px;
+  background: #0e151d;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.case-takeaway > .icon {
+  color: var(--mint);
+  width: 25px;
+  height: 25px;
+  margin-bottom: 18px;
+}
+
+.case-takeaway > .mini-label {
+  font-size: 8px;
+  margin-bottom: 13px;
+}
+
+.case-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px 20px;
+  padding: 20px 30px;
+  border-top: 1px solid var(--line);
+}
+
+.case-footer a, .case-source-note a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.case-footer .icon, .case-source-note .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.case-footer a:hover, .case-source-note a:hover {
+  color: var(--mint);
+}
+
+.case-source-note {
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.case-source-note a {
+  font-size: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .nav-links {
+    gap: 18px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 960px) {
+  .case-featured .case-overview {
+    padding: 30px;
+    gap: 28px;
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .case-featured .case-introduction h3 {
+    font-size: 28px;
+  }
+
+  .case-introduction h3 {
+    font-size: 23px;
+  }
+
+  .case-facts {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .case-featured .case-body {
+    padding: 30px;
+    gap: 28px;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 800px) {
+  .nav-links {
+    gap: 12px;
+    margin-right: 0;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .case-featured .case-overview, .case-featured .case-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-result {
+    padding: 24px 20px;
+  }
+
+  .case-metric {
+    font-size: 82px;
+    letter-spacing: -5px;
+  }
+
+  .case-metric > span {
+    font-size: 42px;
+  }
+
+  .case-process {
+    margin-top: 18px;
+  }
+
+  .case-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .case-heading-subtitle {
+    font-size: 12px;
+    margin-top: 13px;
+  }
+
+  .case-overview, .case-body, .case-featured .case-overview, .case-featured .case-body {
+    padding: 24px 20px;
+  }
+
+  .case-introduction h3, .case-featured .case-introduction h3 {
+    font-size: 25px;
+    letter-spacing: -.8px;
+  }
+
+  .case-topline {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .case-introduction > p {
+    font-size: 12px;
+  }
+
+  .case-facts {
+    gap: 15px;
+  }
+
+  .case-facts dd {
+    font-size: 10px;
+  }
+
+  .case-link {
+    padding-inline: 20px;
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .case-read-time {
+    font-size: 7px;
+  }
+
+  .case-chapter {
+    grid-template-columns: 17px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .case-chapter h4, .case-takeaway h4 {
+    font-size: 16px;
+  }
+
+  .case-takeaway {
+    padding: 20px;
+  }
+
+  .case-footer {
+    padding: 18px 20px;
+  }
+
+  .case-source-note {
+    font-size: 10px;
+  }
+}

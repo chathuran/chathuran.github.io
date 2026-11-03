@@ -1,0 +1,388 @@
+/* Standalone, buildless case-study pages. */
+.study-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 30px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.study-breadcrumb a:hover {
+  color: var(--mint);
+}
+
+.study-breadcrumb [aria-current] {
+  color: var(--text);
+}
+
+.study-hero {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: center;
+  gap: 55px;
+  padding-block: 55px;
+}
+
+.study-hero-copy {
+  min-width: 0;
+}
+
+.study-client {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.study-hero h1 {
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.14;
+  letter-spacing: -2px;
+}
+
+.study-description {
+  margin-top: 23px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.study-visual {
+  min-width: 0;
+}
+
+.study-visual .case-result {
+  min-height: 310px;
+}
+
+.study-visual .case-flow-wrap {
+  margin: 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.study-visual .case-flow {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.study-visual .case-flow li {
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.study-visual .case-flow li:not(:last-child)::after {
+  content: '↓';
+  top: auto;
+  right: 50%;
+  bottom: -24px;
+  transform: translateX(50%);
+}
+
+.study-visual .project-art {
+  height: 330px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.study-meta {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr .6fr;
+  gap: 25px;
+  margin: 0;
+  padding-block: 26px;
+  border-block: 1px solid var(--line);
+}
+
+.study-meta dt {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.study-meta dd {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.study-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  align-items: start;
+  gap: 90px;
+  padding-block: 65px;
+}
+
+.study-content {
+  min-width: 0;
+}
+
+.study-chapter {
+  padding: 0 0 35px;
+  scroll-margin-top: 115px;
+}
+
+.study-chapter + .study-chapter {
+  padding-top: 35px;
+  border-top: 1px solid var(--line);
+}
+
+.study-chapter .eyebrow {
+  margin-bottom: 15px;
+  font-size: 9px;
+}
+
+.study-chapter h2 {
+  font-size: 29px;
+  letter-spacing: -.8px;
+}
+
+.study-chapter > p:last-child {
+  margin-top: 19px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.study-chapter strong {
+  color: var(--text);
+}
+
+.study-sidebar {
+  position: sticky;
+  top: 115px;
+}
+
+.study-toc {
+  padding-bottom: 26px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.study-toc > p {
+  margin-bottom: 16px;
+  font-size: 9px;
+}
+
+.study-toc a {
+  display: flex;
+  gap: 12px;
+  padding-block: 9px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.study-toc a span {
+  color: var(--mint);
+  font-family: var(--mono);
+  font-size: 9px;
+  padding-top: 2px;
+}
+
+.study-toc a:hover {
+  color: var(--mint);
+}
+
+.study-sidebar .case-takeaway h3 {
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.study-evidence {
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.study-evidence .hero-actions {
+  margin-top: 20px;
+}
+
+.study-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.study-pagination a {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  transition: border-color .2s;
+}
+
+.study-pagination a:hover {
+  border-color: var(--mint);
+}
+
+.study-pagination .mini-label {
+  font-size: 8px;
+  color: var(--mint);
+}
+
+.study-pagination strong {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.study-return {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  padding-block: 15px 45px;
+}
+
+.study-page .footer {
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 960px) {
+  .study-hero {
+    gap: 30px;
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .study-layout {
+    gap: 40px;
+    grid-template-columns: minmax(0, 1fr) 240px;
+  }
+
+  .study-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .study-hero {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 35px;
+    gap: 30px;
+  }
+
+  .study-hero h1 {
+    font-size: 39px;
+    letter-spacing: -1.5px;
+  }
+
+  .study-description {
+    font-size: 14px;
+  }
+
+  .study-visual .case-result {
+    min-height: 260px;
+  }
+
+  .study-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    padding-block: 40px;
+  }
+
+  .study-sidebar {
+    display: contents;
+  }
+
+  .study-toc {
+    grid-row: 1;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+  }
+
+  .study-sidebar .case-takeaway {
+    grid-row: 3;
+  }
+
+  .study-toc a {
+    padding-block: 7px;
+  }
+}
+
+@media (max-width: 560px) {
+  .study-breadcrumb {
+    gap: 8px;
+    padding-top: 22px;
+    font-size: 9px;
+  }
+
+  .study-hero h1 {
+    font-size: 33px;
+    letter-spacing: -1.2px;
+  }
+
+  .study-client {
+    font-size: 13px;
+  }
+
+  .study-hero .eyebrow {
+    font-size: 8px;
+    line-height: 1.8;
+  }
+
+  .study-description {
+    font-size: 13px;
+  }
+
+  .study-meta {
+    gap: 22px 15px;
+    padding-block: 22px;
+  }
+
+  .study-meta dt {
+    font-size: 8px;
+  }
+
+  .study-meta dd {
+    font-size: 11px;
+  }
+
+  .study-chapter h2 {
+    font-size: 25px;
+  }
+
+  .study-chapter > p:last-child {
+    font-size: 13px;
+  }
+
+  .study-visual .project-art {
+    height: 280px;
+  }
+
+  .study-pagination {
+    gap: 12px;
+  }
+
+  .study-pagination a {
+    padding: 17px 14px;
+  }
+
+  .study-pagination strong {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .study-pagination .mini-label {
+    font-size: 7px;
+    line-height: 1.9;
+  }
+
+  .study-return {
+    gap: 8px;
+    padding-bottom: 30px;
+  }
+}
