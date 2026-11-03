@@ -5,4 +5,9 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://chathuran.github.io/case-studies/complexica.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chathuran.github.io/case-studies/unifi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chathuran.github.io/case-studies/audience.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chathuran.github.io/case-studies/packtheapps.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chathuran.github.io/case-studies/spring-boot-flow-visualizer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
