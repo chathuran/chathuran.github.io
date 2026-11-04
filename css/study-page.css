@@ -35,6 +35,21 @@
   font-size: 15px;
 }
 
+.study-byline {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.study-byline a {
+  color: var(--mint);
+}
+
+.study-byline a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .study-hero h1 {
   font-size: clamp(36px, 4vw, 52px);
   line-height: 1.14;

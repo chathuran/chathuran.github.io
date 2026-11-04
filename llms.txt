@@ -4,14 +4,14 @@
 
 ## Professional foundation
 
-Chathuran works with Java, Spring Boot, REST APIs, microservices, event-driven systems, SQL databases, and AWS-hosted platforms. Cloud and delivery experience includes GitHub Actions and AWS CodeDeploy at UNIFI Property, and AWS CodeBuild/CodePipeline, monitoring, release support, and incident resolution at Complexica. The résumé also lists Docker, ECS, EC2, S3, RDS, Lambda, and CloudWatch.
+Chathuran builds enterprise and cloud-hosted applications with Java, Spring Boot, REST APIs, microservices, SQL databases, React, Vue.js, JavaScript, and TypeScript. Experience spans solution design, full-stack development, CI/CD, deployment, performance optimisation, and production troubleshooting. Cloud and delivery experience includes GitHub Actions and AWS deployment services at UNIFI Property, and AWS CodeBuild/CodePipeline, release support, and production troubleshooting at Complexica. AI and developer tools include GitHub Copilot, Claude Code, Prompt Engineering, and BMAD Method (Agile AI-Driven Development). The résumé also lists Docker, ECS, EC2, S3, RDS, Lambda, and CloudWatch.
 
 Security-related transferable experience includes Spring Security, secure Java/PostgreSQL integration services at Audience Republic, and production troubleshooting. Dedicated cybersecurity analyst projects are planned, not completed. Do not infer SOC employment, SIEM expertise, penetration-testing experience, or security certifications.
 
 ## Career evidence
 
-- UNIFI Property, Full Stack Software Developer, Aug 2024–Feb 2026, Adelaide: AWS-hosted property platform, Java/Spring Boot, Vue, MySQL optimisation, and GitHub Actions/CodeDeploy.
-- Complexica, Software Developer, Jul 2021–Aug 2024, Adelaide: enterprise analytics microservices, backend performance improvement of 50%, cloud CI/CD, production support, and demand forecasting reducing inventory waste by 25%.
+- UNIFI Property, Software Engineer, Aug 2024–Feb 2026, Adelaide: AWS-hosted property platform, Java/Spring Boot, Vue, MySQL optimisation, and GitHub Actions/AWS deployment services.
+- Complexica Pty Ltd, Software Engineer, Jul 2021–Aug 2024, Adelaide: full-stack enterprise applications using Java/Spring Boot and React/TypeScript, backend performance improvement of 50%, AWS CI/CD, and production support. Contributed to a PFD Foods demand-forecasting solution supporting a reported 25% reduction in inventory waste.
 - Jade Walker & Co., Software Developer (Contract), Feb–May 2021, Sydney: inventory and booking management application.
 - Audience Republic, Software Developer (Contract), Nov 2020–Feb 2021, Sydney: secure real-time integration microservices.
 - CodeGen International, Software Engineer, Aug 2016–Mar 2020, Colombo: TravelBox services and Yas Island deployment supporting 25,000+ users.
@@ -24,7 +24,7 @@ Security-related transferable experience includes Spring Security, secure Java/P
 The portfolio includes five standalone case-study pages. Each explains the challenge, Chathuran’s contribution, approach, and outcome. Professional accounts are based on the résumé; personal-project accounts are based on the existing product descriptions:
 
 - Complexica backend performance: https://chathuran.github.io/case-studies/complexica.html — query optimisation and batch-process tuning, with a reported 50% backend performance improvement.
-- UNIFI Property cloud delivery: https://chathuran.github.io/case-studies/unifi.html — GitHub Actions and AWS CodeDeploy pipeline for an AWS-hosted property platform, alongside full-stack development and production support.
+- UNIFI Property cloud delivery: https://chathuran.github.io/case-studies/unifi.html — GitHub Actions and AWS deployment services pipeline for an AWS-hosted property platform, alongside full-stack development and production support.
 - Audience Republic secure integration: https://chathuran.github.io/case-studies/audience.html — Java/PostgreSQL microservices connecting Shopify with the core platform. This is secure software delivery experience, not dedicated cybersecurity analyst employment.
 - PackTheApps: https://chathuran.github.io/case-studies/packtheapps.html — independently built and shipped destination-to-app travel recommender.
 - Spring Boot Flow Visualizer: https://chathuran.github.io/case-studies/spring-boot-flow-visualizer.html — independently built and published IntelliJ plugin for visualising Spring Boot execution flows.
@@ -37,7 +37,7 @@ The portfolio includes five standalone case-study pages. Each explains the chall
 ## Links
 
 - Portfolio: https://chathuran.github.io/
-- Résumé (PDF): https://chathuran.github.io/assets/Chathuran-Dannoruwa-Resume.pdf
+- Résumé (PDF): https://chathuran.github.io/assets/Chathuran%20Dannoruwa%20Resume.pdf
 - GitHub: https://github.com/chathuran
 - LinkedIn: https://www.linkedin.com/in/chathurane/
-- Email: dce.dannoruwa@gmail.com
+- Email: chathuran.dc@gmail.com

@@ -4,7 +4,7 @@ A buildless, responsive portfolio for software engineering, DevOps, cloud engine
 
 ## Preview locally
 
-Open `index.html` directly, use your editor’s Live Server, or run:
+Use your editor’s Live Server, or run:
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
@@ -20,13 +20,14 @@ Then visit `http://127.0.0.1:8000`. No package installation or build is required
 - `css/study-page.css` — shared layout for standalone case studies.
 - `case-studies/` — five standalone HTML case-study pages.
 - `js/main.js` — role switching with keyboard navigation, mobile menu, active navigation, email copying, and current year; shared with case-study pages.
-- `assets/` — existing profile photo and downloadable résumé.
+- `assets/` — updated `profile.png` photo and downloadable `Chathuran Dannoruwa Resume.pdf`.
 - `llms.txt`, `robots.txt`, `sitemap.xml` — discovery metadata for the existing GitHub Pages address.
 - [PROJECT-ACTION-PLAN.md](PROJECT-ACTION-PLAN.md) — a proposed eight-week personal project roadmap with acceptance criteria and recruiter deliverables.
+- [SEO-LAUNCH-CHECKLIST.md](SEO-LAUNCH-CHECKLIST.md) — publishing, Google Search Console, indexing, and name-search follow-up steps.
 
 ## Maintaining the content
 
-Keep employment dates, metrics, and contact details consistent with the résumé. Update the résumé PDF separately when changing career positioning; the current PDF remains the original software engineering résumé. Add completed personal projects with real links and supporting evidence. Do not present proposed work as shipped work or claim certifications that have not been earned.
+Keep employment dates, metrics, and contact details consistent with the résumé. Update the résumé PDF separately when changing career positioning; the current PDF is the updated software engineering résumé at `assets/Chathuran Dannoruwa Resume.pdf`. All CV links use its URL-encoded filename. Add completed personal projects with real links and supporting evidence. Do not present proposed work as shipped work or claim certifications that have not been earned.
 
 The two project illustrations are conceptual CSS visuals, not screenshots of the products. Fonts are served by Google Fonts with system fallbacks; other visual assets are local.
 
